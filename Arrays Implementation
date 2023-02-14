@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class TemperatureAboveAverage {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter number of days: ");
+        int numDays = scanner.nextInt();
+
+        int[] temperatures = new int[numDays];
+        int sum = 0;
+
+        for (int i = 0; i < numDays; i++) {
+            System.out.print("Enter day " + (i + 1) + " temperature: ");
+            temperatures[i] = scanner.nextInt();
+            sum += temperatures[i];
+        }
+
+        double average = (double) sum / numDays;
+        System.out.println("Average temperature is " + average);
+
+        int count = 0;
+        for (int temperature : temperatures) {
+            if (temperature > average) {
+                count++;
+            }
+        }
+
+        System.out.println("Number of days above average: " + count);
+    }
+}
